@@ -21,4 +21,14 @@ class Contact
   define_method(:save) do
     @@contacts.push(self)
   end
+
+  define_singleton_method(:find) do |id|
+    found_contact = nil
+    @@contacts.each() do |contact|
+      if contact.id().eql?(id)
+        found_contact = contact
+      end
+    end
+    found_contact
+  end
 end

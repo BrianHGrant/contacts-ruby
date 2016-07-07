@@ -1,6 +1,8 @@
 <h1>Add an Email for <%= @contact.first_name() %> <%= @contact.last_name() %></h1>
 
-<form action="/contacts" method="post">
+<form action="/contact/<%= @contact.id() %>/email" method="post">
+  <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id() %>'>
+
   <label for="location_name">Type (i.e. 'Work')</label>
   <input type="text" name="location_name" id="location_name">
 
