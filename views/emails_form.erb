@@ -1,0 +1,11 @@
+<h1>Add an Email for <%= @contact.first_name() %> <%= @contact.last_name() %></h1>
+
+<form action="/contacts" method="post">
+  <label for="location_name">Type (i.e. 'Work')</label>
+  <input type="text" name="location_name" id="location_name">
+
+  <label for="email">Email</label>
+  <input type="text" name="email" id="email">
+
+  <button type="submit">Add Email</button>
+</form>

@@ -1,0 +1,38 @@
+<h1>Contact: <%= @contact.first_name() %> <%= @contact.last_name() %></h1>
+
+<ul>
+  <li>Job: <%= @contact.job() %></li>
+  <li>Job Title: <%= @contact.job_title() %></li>
+</ul>
+
+<h2>Email</h2>
+<ul>
+  <% @emails.each do |email| %>
+    <li><%= email.location_name() %>: <%= email.email() %></li>
+  <% end %>
+</ul>
+<form action="/contacts/<% @contact.id() %>/email/new">
+  <button type="submit">Add Email</button>
+</form>
+
+<h2>Phone Number</h2>
+<ul>
+  <% @phone_numbers.each do |phone_number| %>
+    <li><%= phone_number.location_name() %>: <%= phone_number.number() %> (ext <%= phone_number.ext()) %></li>
+  <% end %>
+</ul>
+<form action="/contacts/<% @contact.id() %>/phone_number/new">
+  <button type="submit">Add Phone Number</button>
+</form>
+
+<h2>Address</h2>
+<ul>
+  <% @addresses.each do |address| %>
+    <li><%= address.location_name() %></li>
+    <li><%= address.street() %></li>
+    <li><%= address.city() %>, <%= address.state() %> <%= address.zip_code() %></li>
+  <% end %>
+</ul>
+<form action="/contacts/<% @contact.id() %>/address/new">
+  <button type="submit">Add Address</button>
+</form>
